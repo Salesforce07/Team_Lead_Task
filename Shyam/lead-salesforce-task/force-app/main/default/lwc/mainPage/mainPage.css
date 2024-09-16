@@ -1,0 +1,9 @@
+.main-card{
+    width: 60%;
+}
+
+@media (max-width: 800px) {
+    .main-card{
+        width: 100%;
+    }
+}

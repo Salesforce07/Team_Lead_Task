@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Contact List">
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                onrowselection={handleRowClick}
+            >
+            </lightning-datatable>
+    </lightning-card>
+</template>

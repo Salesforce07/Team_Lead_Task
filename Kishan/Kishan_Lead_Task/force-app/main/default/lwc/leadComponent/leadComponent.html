@@ -1,0 +1,114 @@
+
+
+<template>
+    <!-- Template for the "Create Lead" button -->
+    <template if:false={isModalOpen}>
+        <lightning-button label="Create Lead" onclick={handleOpenModal}></lightning-button>
+    </template>
+
+    <!-- Template for the lead creation form -->
+    <template if:true={isModalOpen}>
+        <lightning-card title="Create Lead">
+            <div class="slds-p-around_medium">
+                
+                <lightning-input 
+                    name="First Name" 
+                    placeholder="Enter your name"
+                    value={firstName}
+                    onchange={handleInputChange} 
+                    data-id="firstName">
+                </lightning-input>
+                <template if:true={errors.firstName}>
+                    <div class="slds-text-color_error">{errors.firstName}</div>
+                </template>
+
+                <lightning-input 
+                    name="Last Name" 
+                    placeholder="Enter your last name"
+                    value={lastName}
+                    onchange={handleInputChange} 
+                    data-id="lastName">
+                </lightning-input>
+                <template if:true={errors.lastName}>
+                    <div class="slds-text-color_error">{errors.lastName}</div>
+                </template>
+
+                <lightning-input 
+                    name="Email" 
+                    placeholder="Enter your email"
+                    value={email}
+                    onchange={handleInputChange} 
+                    data-id="email">
+                </lightning-input>
+                <template if:true={errors.email}>
+                    <div class="slds-text-color_error">{errors.email}</div>
+                </template>
+
+                <lightning-input 
+                    name="Org Size" 
+                    placeholder="Enter the org size"
+                    value={orgSize}
+                    onchange={handleInputChange} 
+                    data-id="orgSize">
+                </lightning-input>
+                <template if:true={errors.orgSize}>
+                    <div class="slds-text-color_error">{errors.orgSize}</div>
+                </template>
+
+                <lightning-combobox 
+                    name="Lead Status" 
+                    placeholder="Select your lead status"
+                    value={leadStatus}
+                    options={leadStatusOptions}
+                    onchange={handleInputChange} 
+                    data-id="leadStatus">
+                </lightning-combobox>
+                
+                <lightning-input 
+                  name="Company" 
+                  placeholder="Enter your company name"
+                    value={company}
+                    onchange={handleInputChange} 
+                    data-id="company">
+                </lightning-input>
+
+                <lightning-combobox 
+                    name ="Lead Source" 
+                    placeholder="Select your Lead Source"
+                    value={leadSource}
+                    options={leadSourceOptions}
+                    onchange={handleInputChange} 
+                    data-id="leadSource">
+                </lightning-combobox>
+
+                <lightning-input 
+                    name="Country" 
+                    placeholder="Enter your country"
+                    value={country}
+                    onchange={handleInputChange} 
+                    data-id="country">
+                </lightning-input>
+
+                <template if:true={errorMessage}>
+                    <div class="slds-text-color_error slds-m-top_small">
+                        {errorMessage}
+                    </div>
+                </template>
+
+                <lightning-button 
+                    variant="brand" 
+                    label="Save" 
+                    onclick={handleSave} 
+                    class="slds-m-top_medium">
+                </lightning-button>
+
+                <lightning-button 
+                    variant="neutral" 
+                    label="Cancel" 
+                    onclick={handleCloseModal} 
+                    class="slds-m-top_small">
+                </lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+</template>

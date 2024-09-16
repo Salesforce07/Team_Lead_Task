@@ -1,0 +1,9 @@
+.flex-box{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.back-blur{
+    background-color: rgba(156, 154, 154, 0.6);
+}

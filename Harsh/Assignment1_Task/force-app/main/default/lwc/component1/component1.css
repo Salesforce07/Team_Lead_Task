@@ -1,0 +1,4 @@
+/* Define a custom CSS class to replicate the SLDS medium top margin */
+.custom-top-margin {
+    margin-top: 1rem; /* Adjust this value if needed, e.g., 16px */
+}

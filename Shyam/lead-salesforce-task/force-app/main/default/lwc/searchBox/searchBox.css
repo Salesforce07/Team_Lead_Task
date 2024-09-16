@@ -1,0 +1,19 @@
+.search-card{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+.input-box{
+    padding: 8px 18px;
+    flex: 1;
+    border-radius: 12px;
+}
+
+.search-btn{
+    padding: 8px 18px;
+    border-radius: 12px;
+    flex: 0.1;
+}

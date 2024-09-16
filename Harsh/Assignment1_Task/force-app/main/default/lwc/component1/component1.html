@@ -1,0 +1,134 @@
+<template>
+  <template if:false={isModalOpen}>
+    <lightning-button label="Add Lead" onclick={handleOpenModal}></lightning-button>
+</template>
+
+<!-- Template for the lead creation form -->
+<template if:true={isModalOpen}>
+
+  <!-- <div>
+    <lightning-button label="Add Lead" onclick={handleOpenModal}></lightning-button>
+  </div> -->
+
+  <lightning-card title="Lead Form">
+      <div class="slds-var-m-around_medium">
+          <!-- First Name Field -->
+          <lightning-input
+              name="firstName"
+              value={firstName}
+              onchange={handleInputChange}
+              data-id="firstName"
+              placeholder="Enter first name"
+              oninput={validateFirstName}
+              aria-required="true"
+          ></lightning-input>
+          <template if:true={firstNameError}>
+              <div class="slds-text-color_error slds-var-m-top_small">{firstNameError}</div>
+          </template>
+
+          <!-- Last Name Field -->
+          <lightning-input
+              name="lastName"
+              value={lastName}
+              onchange={handleInputChange}
+              data-id="lastName"
+              placeholder="Enter last name"
+              required
+              oninput={validateLastName}
+              aria-required="true"
+          ></lightning-input>
+          <template if:true={lastNameError}>
+              <div class="slds-text-color_error slds-var-m-top_small">{lastNameError}</div>
+          </template>
+
+          <!-- Email Field -->
+          <lightning-input
+              name="email"
+              value={email}
+              onchange={handleInputChange}
+              data-id="email"
+              placeholder="Enter email"
+              oninput={validateEmail}
+              aria-required="true"
+          ></lightning-input>
+          <template if:true={emailError}>
+              <div class="slds-text-color_error slds-var-m-top_small">{emailError}</div>
+          </template>
+
+          <!-- Country Name Field -->
+          <lightning-input
+              name="countryName"
+              value={countryName}
+              onchange={handleInputChange}
+              data-id="countryName"
+              placeholder="Enter country name"
+              required
+              oninput={validateCountryName}
+              aria-required="true"
+          ></lightning-input>
+          <template if:true={countryNameError}>
+              <div class="slds-text-color_error slds-var-m-top_small">{countryNameError}</div>
+          </template>
+
+          <!-- Company Name Field -->
+          <lightning-input
+              name="companyName"
+              value={companyName}
+              onchange={handleInputChange}
+              data-id="companyName"
+              placeholder="Enter company name"
+              required
+              oninput={validateCompanyName}
+              aria-required="true"
+          ></lightning-input>
+          <template if:true={companyNameError}>
+              <div class="slds-text-color_error slds-var-m-top_small">{companyNameError}</div>
+          </template>
+
+          <!-- Org Size Field -->
+          <lightning-input
+              name="orgSize"
+              value={orgSize}
+              data-id="orgSize"
+              onchange={handleLeadAndOrg}
+              placeholder="Enter organization size"
+          ></lightning-input>
+
+          <!-- Lead Status Combobox -->
+          <lightning-combobox
+              name="leadStatus"
+              value={leadStatus}
+              options={leadStatusOptions}
+              data-id="leadStatus"
+              onchange={handleLeadAndOrg}
+              required
+              aria-required="true"
+          ></lightning-combobox>
+
+          <!-- Lead Source Combobox -->
+          <lightning-combobox
+              name="leadSource"
+              value={leadSource}
+              options={leadSourceOptions}
+              data-id="leadSource"
+              onchange={handleLeadAndOrg}
+          ></lightning-combobox>
+
+          <!-- Submit Button -->
+          <div class="slds-var-m-top_medium">
+              <lightning-button
+                  variant="brand"
+                  label="Create Lead"
+                  onclick={handleSubmit}
+              ></lightning-button>
+          </div>
+
+          <!-- General Error Message -->
+          <template if:true={hasError}>
+              <div class="slds-text-color_error slds-var-m-top_medium">{errorMessage}</div>
+          </template>
+      </div>
+  </lightning-card>
+</template>
+
+</template>

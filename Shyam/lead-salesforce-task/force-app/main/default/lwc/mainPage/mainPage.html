@@ -1,0 +1,10 @@
+<template>
+    <div class="main-card">
+<lightning-card>
+ <c-search-box oncontactupdate={handleContactUpdate}></c-search-box>
+<template if:true={hasContacts}>
+ <c-data-table contacts={contacts}></c-data-table>
+</template>
+</lightning-card>
+</div>
+</template>
