@@ -1,0 +1,61 @@
+<template>
+    <!-- Create a button to show the form -->
+    <lightning-button label="Create Lead" onclick={showForm} class="slds-m-bottom_medium"></lightning-button>
+
+    <!-- Form to capture Lead details -->
+    <template if:true={isFormVisible}>
+        <!-- First Name Field -->
+        <lightning-input name="firstName" placeholder="Enter First Name" data-id="firstName" type="text"
+            value={firstName} onkeyup={handleInputChange}></lightning-input>
+        <template if:true={firstNameError}>
+            <p class="slds-text-color_error">{firstNameError}</p>
+        </template>
+
+        <!-- Last Name Field -->
+        <lightning-input name="lastName" placeholder="Enter Last Name" type="text" data-id="lastName" value={lastName}
+            onkeyup={handleInputChange}></lightning-input>
+        <template if:true={lastNameError}>
+            <p class="slds-text-color_error">{lastNameError}</p>
+        </template>
+
+        <!-- Email Field -->
+        <lightning-input name="email" placeholder="Enter Email" type="email" value={email} data-id="email"
+            onkeyup={handleInputChange}></lightning-input>
+        <template if:true={emailError}>
+            <p class="slds-text-color_error">{emailError}</p>
+        </template>
+
+        <!-- Country Field -->
+        <lightning-input name="country" placeholder="Enter Country" type="text" value={country} data-id="country"
+            onkeyup={handleInputChange}></lightning-input>
+        <template if:true={countryError}>
+            <p class="slds-text-color_error">{countryError}</p>
+        </template>
+
+        <!-- Company Field -->
+        <lightning-input name="company" placeholder="Enter Company" type="text" value={company} data-id="company"
+            onkeyup={handleInputChange}></lightning-input>
+        <template if:true={companyError}>
+            <p class="slds-text-color_error">{companyError}</p>
+        </template>
+
+        <!-- Lead Source Picklist -->
+        <lightning-combobox name="leadSource" data-id="leadSource" placeholder="Select Lead Source"
+            options={leadSourceOptions} value={leadSource} onchange={handleLeadSourceChange}>
+        </lightning-combobox>
+        <template if:true={leadSourceError}>
+            <p class="slds-text-color_error">{leadSourceError}</p>
+        </template>
+
+        <!-- Lead Status Picklist -->
+        <lightning-combobox name="leadStatus" placeholder="Select Lead Status" data-id="leadStatus"
+            options={leadStatusOptions} value={leadStatus} onchange={handleLeadStatusChange}>
+        </lightning-combobox>
+        <template if:true={leadStatusError}>
+            <p class="slds-text-color_error">{leadStatusError}</p>
+        </template>
+
+        <!-- Save Button -->
+        <lightning-button class="slds-m-top_medium" label="Save Lead" onclick={handleSaveLead}></lightning-button>
+    </template>
+</template>
