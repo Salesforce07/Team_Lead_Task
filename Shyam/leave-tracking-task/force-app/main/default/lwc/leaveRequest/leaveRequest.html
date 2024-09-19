@@ -1,0 +1,19 @@
+<template>
+                <div class="slds-modal__header">
+                  <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">New Leave</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium customgrid" id="modal-content-id-1">
+                     <lightning-record-picker class="Employee" name="Employee" value={recordId} label="Employee" placeholder="Search Employee..." object-api-name="Employee__c" onchange={handleChange} display-info={display} required></lightning-record-picker>
+                     <lightning-input  name="Status" value="Draft" type="text" label="Status" readonly></lightning-input>
+                      <lightning-input name="Start Date" class="StartDate" type="date" label="Star Date"  onchange={handleChange} required></lightning-input>
+                      <lightning-input name="End Date" class="EndDate" type="date" label="End Date"  onchange={handleChange} required></lightning-input>
+                     <lightning-combobox  class="slds-col LeaveType" name="Leave Type" label="Leave Type" value={leaveType} options={leaveTypeOptions} onchange={handleChange} required></lightning-combobox>
+                </div>
+                <div class="slds-modal__footer">
+                  <button class="slds-button slds-button_neutral slds-m-right_small" onclick={closeQuickAction} aria-label="Cancel and close">Cancel</button>
+                  <lightning-button class="slds-float_right" variant="brand" label="Save" onclick={handleSubmit}></lightning-button>
+                </div>
+              
+           
+</template>
+
