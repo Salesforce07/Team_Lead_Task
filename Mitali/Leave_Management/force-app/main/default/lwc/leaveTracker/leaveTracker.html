@@ -1,0 +1,51 @@
+<template>
+    <!-- Card to wrap the form elements -->
+    <lightning-card title="Leave Request Form">
+        <div class="slds-p-around_medium">
+            <!-- Employee picker component for selecting an employee -->
+            <lightning-record-picker 
+                label="Employee"
+                placeholder="Employee"
+                object-api-name="Employee__c">
+            </lightning-record-picker>
+
+            <!-- Start Date Input with Error Handling -->
+            <lightning-input 
+                label="Start Date" 
+                type="date" 
+                value={startDate} 
+                class={startDateClass} 
+                onchange={handleStartDateChange}>
+            </lightning-input>
+            <!-- Error message for invalid Start Date -->
+            <template if:true={startDateError}>
+                <div class="error-message">{startDateError}</div>
+            </template>
+
+            <!-- End Date Input with Error Handling -->
+            <lightning-input 
+                label="End Date" 
+                type="date" 
+                value={endDate} 
+                class={endDateClass} 
+                onchange={handleEndDateChange}>
+            </lightning-input>
+            <!-- Error message for invalid End Date -->
+            <template if:true={endDateError}>
+                <div class="error-message">{endDateError}</div>
+            </template>
+
+            <!-- Leave Type Dropdown -->
+            <lightning-combobox 
+                label="Leave Type" 
+                value={leaveType} 
+                options={leaveTypeOptions} 
+                onchange={handleLeaveTypeChange}>
+            </lightning-combobox>
+
+            <!-- Submit Button for Submitting the Form -->
+            <button class="submit-button" onclick={handleSubmit}>Submit</button>
+        </div>
+    </lightning-card>
+</template>
+

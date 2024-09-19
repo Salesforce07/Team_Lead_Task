@@ -1,0 +1,30 @@
+.slds-input-margin {
+    margin-bottom: 1rem;
+}
+
+.slds-has-error input {
+    border: 1px solid red;
+    background-color: #ffebee;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.submit-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #0070d2;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #005fb2;
+}
+
+
