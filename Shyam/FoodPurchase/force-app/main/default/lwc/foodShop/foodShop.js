@@ -3,14 +3,16 @@ import { LightningElement, wire } from 'lwc';
 import getProducts from '@salesforce/apex/ProductController.getProducts';
 import saveOrderItem from '@salesforce/apex/OrderItemController.saveOrderItem';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {NavigationMixin} from 'lightning/navigation';
 
 
-export default class FoodShop extends LightningElement {
+export default class FoodShop extends NavigationMixin(LightningElement) {
     account;
     logInAccount;
     purchasedItems;
     products;
     selectedProducts;
+    orderId;
 
     
     @wire(getProducts)
@@ -35,6 +37,17 @@ export default class FoodShop extends LightningElement {
         });
     }
 
+    navigateToRecordViewPage() {
+        this[NavigationMixin.Navigate]({
+          type: "standard__recordPage",
+          attributes: {
+            recordId: this.orderId,
+            objectApiName: "Order",
+            actionName: "view",
+          },
+        });
+      }
+
     handlePurchaseItems(e){
 
         // create order and send to saveOrder
@@ -47,6 +60,10 @@ export default class FoodShop extends LightningElement {
         this.purchasedItems=e.detail;
          saveOrderItem({orderItemList:this.purchasedItems, order:order})
         .then(res=>{
+            console.log(JSON.stringify(res));
+            
+            this.orderId= res[0].Order__c;
+            console.log('navigate to ', this.orderId)
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Success',
@@ -54,6 +71,7 @@ export default class FoodShop extends LightningElement {
                     variant: 'success'
                 })
             );
+            this.navigateToRecordViewPage();
         }).catch(error=>{
             this.dispatchEvent(
                 new ShowToastEvent({
