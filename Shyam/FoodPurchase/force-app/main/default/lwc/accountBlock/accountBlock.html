@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Customer Info">
+        <div class="slds-gutters slds-grid slds-grid_align-center slds-p-around_x-large">
+            <lightning-input class="slds-col slds-size_3-of-12" type="text" name="Name" data-type="Name" variant="label-hidden" onchange={handleChange} placeholder="Name"></lightning-input>
+            <lightning-input class="slds-col slds-size_3-of-12" type="number" name="Phone" data-type="Phone" variant="label-hidden" onchange={handleChange} placeholder="Phone"></lightning-input>
+        </div>
+        <lightning-button class="middle" label="Save" onclick={handleSave}></lightning-button>
+    </lightning-card>
+</template>

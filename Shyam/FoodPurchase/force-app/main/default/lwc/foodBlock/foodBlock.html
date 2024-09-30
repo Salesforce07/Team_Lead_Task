@@ -1,0 +1,30 @@
+<template>
+    <lightning-card>
+        <div class="main">
+            <!-- types of food  -->
+            <div class="left">
+              <template for:each={foodTypes} for:item="foodType">
+                <button key={foodType} data-type={foodType} data-id={foodType} onclick={handleFoodType} class='type-btn'>{foodType}</button>
+              </template>
+            </div>
+
+            <!-- types window -->
+            <div class="right">
+              <div class="products" if:true={products} >
+                <template for:each={selected} for:item="product">
+                    <div class="product-card" key={product.id}>
+                      <lightning-spinner class="top-spinner overlay" if:true={isLoading} alternative-text="Loading..."></lightning-spinner>
+                            <img src={product.photoUrl} alt="product" />
+                            <div class="product-name">{product.name}</div>
+                            <div class="product-price">₹ {product.price}</div>
+                            <div class="quantity-block">
+                                <input type="number" value={product.quantity} data-type={product.name} name={product.name} class="product-quantity-input" oninput={handleQuantityChange} data-id={product.id}></input>
+                            </div>
+                    </div>
+                </template>
+              </div>
+            </div>
+        </div>
+        <button onclick={handlePurchase} class="slds-button slds-button_success purchase-btn">Purchase</button>
+    </lightning-card>
+</template>

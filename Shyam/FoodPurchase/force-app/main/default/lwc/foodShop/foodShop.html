@@ -1,0 +1,21 @@
+<template>
+    <!-- account page -->
+     <template if:false={logInAccount}>
+     <c-account-block onaccountsave={handleAccount}></c-account-block>
+    </template>
+     <!-- food page -->
+      <template if:true={logInAccount}>
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+            <span>Welcome ! {logInAccount.Name}</span>
+            </h2>
+            </div>
+            </header>
+            </div>
+        </article>
+     <c-food-block products={products} selected={selectedProducts} onpurchasesave={handlePurchaseItems}></c-food-block>
+      </template>
+</template>
