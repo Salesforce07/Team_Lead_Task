@@ -1,0 +1,146 @@
+<template>
+    <div class="full-page-div">
+        <!-- Customer Details Form -->
+        <template if:true={showCustomerForm}>
+            <div class="customer-details">
+                <h1>Enter Customer Details</h1>
+                <!-- Input field for Customer Name -->
+                <lightning-input 
+                    placeholder="Customer Name" 
+                    class="input-field" 
+                    value={customerName} 
+                    onchange={handleNameChange} 
+                    data-id="name" 
+                    required>
+                </lightning-input>
+                
+                <!-- Input field for Customer Number -->
+                <lightning-input 
+                    placeholder="Customer Number" 
+                    class="input-field" 
+                    value={customerNumber} 
+                    onchange={handleNumberChange} 
+                    data-id="number" 
+                    required>
+                </lightning-input>
+                
+                <!-- Spinner displayed while the form is being processed -->
+                <template if:true={showSpinner}>
+                    <lightning-spinner 
+                        alternative-text="Loading....." 
+                        size="large" 
+                        variant="brand">
+                    </lightning-spinner>
+                </template>
+                
+                <!-- Button to save customer details -->
+                <lightning-button 
+                    label="Save" 
+                    class="save-button" 
+                    variant="brand" 
+                    onclick={handleSave}>
+                </lightning-button>
+            </div>
+        </template>
+           
+        <!-- Menu Grid -->
+        <template if:true={showMenuGrid}>
+            <!-- Display customer information after saving -->
+            <div class="customer-info">
+                <h1>Customer Name: {customerName}</h1>
+                <h2>Customer Number: {customerNumber}</h2>
+            </div>
+
+            <div class="layout">
+                <div class="menu">
+                    <!-- Button to show Starters menu -->
+                    <div class="slds-card slds-has-bottom-magnet">
+                        <div class="slds-p-around_medium">
+                            <button 
+                                class={starterButtonClass} 
+                                onclick={showStarters} 
+                                data-id="menu1">
+                                Starter-MRG
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Button to show Dessert menu -->
+                    <div class="slds-card slds-has-top-magnet">
+                        <div class="slds-p-around_medium">
+                            <button 
+                                class={dessertButtonClass} 
+                                onclick={showDessert} 
+                                data-id="menu2">
+                                DessertSweet
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Button to show Main Course menu -->
+                    <div class="slds-card slds-has-top-magnet">
+                        <div class="slds-p-around_medium">
+                            <button 
+                                class={mainCourseButtonClass} 
+                                onclick={showMainCourse} 
+                                data-id="menu3">
+                                MainCourse
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Button to show Cold Drinks menu -->
+                    <div class="slds-card slds-has-top-magnet">
+                        <div class="slds-p-around_medium">
+                            <button 
+                                class={coldDrinkButtonClass} 
+                                onclick={showColdDrinks} 
+                                data-id="menu4">
+                                Cold-Drink
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Grid with Images and Quantity Selector -->
+                <div class="image-container">  
+                    <template if:true={selectedMenu}> 
+                        <div class="grid-container">
+                            <template for:each={griditems} for:item="item">
+                                <div key={item.id} class="grid-item">
+                                    <!-- Display item image -->
+                                    <img src={item.ImageUrl} alt={item.name} class="item-image" />
+                                    <!-- Display item name -->
+                                    <p>{item.name}</p> 
+                                    <!-- Display item price -->
+                                    <span>₹{item.price}</span>
+
+                                    <!-- Quantity Selector for each item -->
+                                    <div class="quantity-selector">
+                                        <label for={item.id}>Qty:</label>
+                                        <input 
+                                            type="number" 
+                                            data-id={item.id} 
+                                            min="0" 
+                                            value={item.quantity} 
+                                            onchange={handleQuantityChange} 
+                                            class="slds-input" />
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Purchase Button for finalizing the order -->
+            <div class="slds-m-top_large">
+                <lightning-button 
+                    label="Purchase" 
+                    class="slds-button_success" 
+                    onclick={handlePurchase}>
+                </lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

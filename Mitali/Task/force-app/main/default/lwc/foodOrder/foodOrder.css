@@ -1,0 +1,240 @@
+/* Full Page Layout Styles */
+.full-page-div {
+    width: 100%; /* Set full width */
+    height: 100%; /* Set full height */
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px; /* Inner spacing */
+    box-sizing: border-box; /* Include padding in width and height calculations */
+}
+
+/* Customer Details Form Styles */
+.customer-details {
+    background-color: #ffffff; /* White background for customer details */
+    padding: 20px; /* Inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the section */
+}
+
+.customer-form {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly */
+}
+
+.input-field {
+    width: 48%; /* Slightly less than half width */
+    margin-bottom: 15px; /* Space below each input */
+}
+
+h1 {
+    font-size: medium; /* Medium font size for headings */
+    font-weight: 500; /* Semi-bold weight */
+}
+
+/* Save Button Styles */
+.save-button {
+    margin-top: 20px; /* Space above the button */
+    width: 100%; /* Full width */
+    background-color: #01a4e9; /* Custom blue background */
+    color: white; /* White text color */
+}
+
+/* Customer Info Styles */
+.customer-info {
+    background-color: #ffffff; /* White background for customer info */
+    padding: 10px; /* Inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the section */
+    text-align: center; /* Center text alignment */
+}
+
+/* Grid Layout for Items */
+.grid-container {
+    display: grid; /* Use CSS grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between grid items */
+    width: 100%; /* Full width */
+}
+
+/* Individual Grid Item Styles */
+.grid-item {
+    background-color: #ffffff; /* White background */
+    padding: 15px; /* Inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text alignment */
+}
+
+/* Quantity Selector Styles */
+.quantity-selector {
+    margin-top: 20px; /* Space above selector */
+    margin-left: 10px; /* Space on the left */
+    margin-right: 10px; /* Space on the right */
+}
+
+/* Purchase Button Container */
+.purchase-container {
+    margin-top: 30px; /* Space above purchase section */
+    text-align: center; /* Center text alignment */
+}
+
+/* Styles for Purchase Button */
+.purchase-button {
+    background-color: rgb(128, 157, 206); /* Custom light blue */
+    color: rgb(150, 186, 219); /* Light blue text color */
+    width: 200px; /* Fixed width */
+}
+
+/* Grid Item Styles (Duplicate of above, can be removed) */
+.grid-item {
+    background-color: #ffffff; /* White background */
+    padding: 15px; /* Inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text alignment */
+}
+
+/* Quantity Selector Alignment */
+.quantity-selector {
+    align-items: center; /* Center items vertically */
+}
+
+/* Quantity Selector Label Styles */
+.quantity-selector label {
+    margin-right: 5px; /* Space to the right of label */
+}
+
+/* Quantity Selector Input Styles */
+.quantity-selector input {
+    width: 60px; /* Fixed width */
+    margin-right: 10px; /* Space to the right */
+    text-align: center; /* Center text alignment */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0px 0px 5px rgba(1, 164, 233, 0.5); /* Shadow effect */
+}
+
+/* Highlight Effect on Quantity Input Hover */
+.quantity-selector input:hover {
+    border-color: orange; /* Change border color */
+    box-shadow: 0 0 8px orange; /* Highlight effect */
+}
+
+/* Full Page Layout */
+.layout {
+    display: flex; /* Use flexbox for layout */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    box-sizing: border-box; /* Include padding in width and height calculations */
+    margin: 0; /* Remove default margins */
+}
+
+/* Vertical Menu Styles */
+.vertical-menu {
+    width: 30%; /* Width of the vertical menu */
+    height: 100vh; /* Full height of viewport */
+    background-color: #8ac4f0; /* Lightning Experience blue color */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items to the start */
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Menu Tabs Styles */
+.vertical-menu lightning-button {
+    width: 100%; /* Full width for menu buttons */
+    margin: 0; /* Remove margins */
+    display: flex; /* Use flexbox for button layout */
+    border-radius: 0; /* No rounding of corners */
+    background-color: #789ed8; /* Light gray background */
+    color: #71a0c4; /* Text color */
+}
+
+/* Active/Selected Menu Tab Styling */
+.vertical-menu lightning-button:focus,
+.vertical-menu lightning-button:hover {
+    background-color: #404243; /* Change background when active or hovered */
+    color: rgb(130, 177, 239); /* Change text color */
+}
+
+/* Grid Container for Menu Item Images */
+.image-container {
+    padding: 20px; /* Inner spacing */
+    box-sizing: border-box; /* Include padding in width calculations */
+    height: auto; /* Automatic height */
+    width: 100%; /* Full width */
+    object-fit: contain; /* Maintain aspect ratio of images */
+}
+
+/* General Button Styles */
+.slds-button {
+    display: flex; /* Use flexbox for button layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    font-weight: bold; /* Bold text */
+    background-color: white; /* White background */
+    color: #0070f3; /* Text color */
+    /* border: 2px solid #0070f3;  */
+    padding: 0.75rem 1.5rem; /* Padding */
+    /* border-radius: 0.25rem;  */
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Active Button Styles */
+.selected {
+    background-color: #8fcdee; /* Color for active button */
+    color: rgb(131, 197, 227); /* Change text color */
+    transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Button Hover Effect */
+.slds-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    animation: pulse 0.5s ease-in-out; /* Pulse effect */
+}
+
+/* Button Click Effect */
+.slds-button:active {
+    transform: scale(0.95); /* Scale down on click */
+    box-shadow: none; /* Remove shadow */
+}
+
+/* Purchase Button Styles */
+.purchase-button {
+    background-color: rgb(149, 164, 225); /* Light blue background */
+    color: #0070f3; /* Text color */
+    font-size: 1.25rem; /* Increase font size */
+    border: 2px solid #0070f3; /* Blue border */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.75rem; /* Padding */
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Active State for Purchase Button */
+.purchase-button.active {
+    background-color: #005bb5; /* Change color when active */
+    color: rgb(145, 161, 224); /* Change text color */
+}
+
+/* Animation for Purchase Button on Hover */
+.purchase-button:hover {
+    animation: bounce 0.5s ease-in-out; /* Bounce effect on hover */
+}
+
+/* Bounce Animation Keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Original position */
+    }
+    50% {
+        transform: translateY(-5px); /* Move up */
+    }
+}
+
+/* Button Container Styles */
+.menu {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+}
